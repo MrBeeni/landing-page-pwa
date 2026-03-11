@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PWA Primary Meta Tags -->
+    <title>Muhammad Mubeen - Full Stack Developer</title>
+    <meta name="title" content="Muhammad Mubeen - Full Stack Developer" />
+    <meta name="description" content="Full Stack Developer building modern web applications and SaaS platforms. Expert in React.js, Next.js, TypeScript, Node.js, and Firebase." />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#10b981" />
+    <meta name="msapplication-TileColor" content="#10b981" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-72x72.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-72x72.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Apple Mobile Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="M. Mubeen" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muhammadmubeen.dev/" />
+    <meta property="og:title" content="Muhammad Mubeen - Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer building modern web applications and SaaS platforms. Expert in React.js, Next.js, TypeScript, Node.js, and Firebase." />
+    <meta property="og:image" content="/screenshots/desktop.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muhammadmubeen.dev/" />
+    <meta property="twitter:title" content="Muhammad Mubeen - Full Stack Developer" />
+    <meta property="twitter:description" content="Full Stack Developer building modern web applications and SaaS platforms. Expert in React.js, Next.js, TypeScript, Node.js, and Firebase." />
+    <meta property="twitter:image" content="/screenshots/desktop.png" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+    
+    <!-- Install PWA Prompt -->
+    <script>
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        // You can show your custom install button here
+      });
+    </script>
+  </body>
+</html>
